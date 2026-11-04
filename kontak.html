@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hubungi NETWARE: lokasi, WhatsApp, email, dan formulir pesan." />
+  <title>Kontak | NETWARE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/animasi.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true"><div class="loader-ring"></div></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#konten">Lewati ke konten</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="logo" aria-label="NETWARE beranda">
+        <span class="logo-mark"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+        <span>NETWARE<small>Unit Produksi TKJ SMKN 1 Bantul</small></span>
+      </a>
+      <nav aria-label="Navigasi utama">
+        <ul class="nav-menu" id="menu">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="profil.html" class="nav-link">Profil</a></li>
+          <li><a href="layanan.html" class="nav-link">Layanan</a></li>
+          <li><a href="kerjasama.html" class="nav-link">Kerja Sama</a></li>
+          <li><a href="kontak.html" class="nav-link">Kontak</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" type="button" aria-label="Aktifkan mode gelap" aria-pressed="false">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="menu">
+          <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+          <svg class="icon icon-close hidden" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="konten">
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumb"><a href="index.html">Beranda</a> / Kontak</div>
+        <h1>Hubungi Kami</h1>
+        <p>Punya pertanyaan, ingin memesan layanan, atau berminat bekerja sama? Kirim pesan dan kami akan segera merespons.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+
+        <!-- Informasi kontak -->
+        <div class="contact-info">
+          <article class="card reveal">
+            <div class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <h3>Lokasi</h3>
+              <p>SMK Negeri 1 Bantul<br />Bantul, Daerah Istimewa Yogyakarta<br /><em>[Isi alamat lengkap]</em></p>
+            </div>
+          </article>
+
+          <article class="card reveal reveal-delay-1">
+            <div class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div>
+              <h3>WhatsApp</h3>
+              <p><a href="https://wa.me/6200000000000" target="_blank" rel="noopener">[Isi nomor WhatsApp]</a><br />Senin&ndash;Jumat, jam sekolah</p>
+            </div>
+          </article>
+
+          <article class="card reveal reveal-delay-2">
+            <div class="card-icon"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+            <div>
+              <h3>Email</h3>
+              <p><a href="mailto:isi-email@domain.sch.id">[Isi alamat email]</a></p>
+            </div>
+          </article>
+
+          <div class="map-frame reveal" role="img" aria-label="Placeholder peta lokasi" style="display:grid;place-items:center;background:var(--surface);border:1px dashed var(--border);color:var(--text-muted);font-size:0.9rem">
+            Tempatkan peta Google Maps di sini
+          </div>
+        </div>
+
+        <!-- Formulir -->
+        <form class="form reveal reveal-delay-1" id="contact-form" novalidate>
+          <h3 style="color:var(--text);margin-bottom:8px">Kirim Pesan</h3>
+          <p style="margin-bottom:24px;font-size:0.93rem">Semua kolom bertanda wajib diisi.</p>
+
+          <div class="form-group">
+            <label for="nama">Nama Lengkap *</label>
+            <input type="text" id="nama" name="nama" placeholder="Nama Anda" required />
+            <div class="error-msg">Nama minimal 3 karakter.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="nama@email.com" required />
+            <div class="error-msg">Masukkan alamat email yang valid.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="telepon">Nomor Telepon / WhatsApp *</label>
+            <input type="tel" id="telepon" name="telepon" placeholder="0812xxxxxxx" required />
+            <div class="error-msg">Nomor telepon tidak valid.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="layanan">Jenis Layanan *</label>
+            <select id="layanan" name="layanan" required>
+              <option value="">— Pilih layanan —</option>
+              <option value="cetak-dokumen">Cetak Dokumen Hitam Putih</option>
+              <option value="cetak-warna">Cetak Warna</option>
+              <option value="jilid">Jilid &amp; Laminating</option>
+              <option value="servis-hp-layar">Ganti Layar HP</option>
+              <option value="servis-hp-baterai">Ganti Baterai HP</option>
+              <option value="servis-laptop-software">Install Ulang &amp; Optimasi</option>
+              <option value="servis-laptop-hardware">Perbaikan Hardware Laptop</option>
+              <option value="jaringan">Instalasi Jaringan</option>
+              <option value="cctv">Pemasangan CCTV</option>
+              <option value="pembuatan-web">Pembuatan Website</option>
+              <option value="kerja-sama">Kerja Sama</option>
+              <option value="lainnya">Lainnya</option>
+            </select>
+            <div class="error-msg">Pilih jenis layanan.</div>
+          </div>
+
+          <div class="form-group">
+            <label for="pesan">Pesan *</label>
+            <textarea id="pesan" name="pesan" placeholder="Jelaskan kebutuhan Anda secara singkat" required></textarea>
+            <div class="error-msg">Pesan minimal 10 karakter.</div>
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit">
+            <span class="btn-label">Kirim Pesan</span>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="logo"><span class="logo-mark"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><span>NETWARE</span></a>
+          <p>Unit Produksi Teknik Komputer dan Jaringan, SMK Negeri 1 Bantul, Daerah Istimewa Yogyakarta.</p>
+        </div>
+        <div>
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="layanan.html">Layanan</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Lainnya</h4>
+          <ul>
+            <li><a href="kerjasama.html">Kerja Sama</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span class="current-year">2026</span> NETWARE. Hak cipta dilindungi.</span>
+        <span>SMK Negeri 1 Bantul</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" type="button" aria-label="Kembali ke atas">
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+</body>
+</html>

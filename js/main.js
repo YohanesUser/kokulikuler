@@ -1,7 +1,10 @@
 /* =========================================================
    main.js — fungsi umum seluruh halaman NETWARE
-   Meliputi: menu responsif, tema gelap/terang, progress scroll,
-   tombol kembali ke atas, notifikasi (toast), validasi formulir.
+   Meliputi: tema terang/gelap (default terang), loader halaman,
+   menu responsif, progress scroll, tombol kembali ke atas,
+   notifikasi (toast), dan tahun otomatis.
+   Form kontak ditangani sepenuhnya oleh kontak.js.
+   Palet: #167D94 · #266594 · #335095
    ========================================================= */
 
 (function () {
@@ -12,7 +15,7 @@
   const header = document.querySelector(".site-header");
 
   /* ---------- 1. Notifikasi (toast) ---------- */
-  // Dipakai global oleh halaman lain: window.showToast(pesan, tipe)
+  // Dipakai global oleh halaman lain: window.showToast(pesan, tipe, durasi)
   function showToast(message, type = "info", duration = 3500) {
     let container = document.querySelector(".toast-container");
     if (!container) {
@@ -34,7 +37,7 @@
   }
   window.showToast = showToast;
 
-  /* ---------- 2. Tema gelap / terang ---------- */
+  /* ---------- 2. Tema: default terang (palet NETWARE) ---------- */
   function applyTheme(theme) {
     root.setAttribute("data-theme", theme);
     const btn = document.querySelector(".theme-toggle");
@@ -53,8 +56,8 @@
     } catch (e) {
       saved = null;
     }
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    applyTheme(saved || (prefersDark ? "dark" : "light"));
+    // Default selalu terang. Mode gelap hanya aktif jika pengguna memilihnya sendiri.
+    applyTheme(saved === "dark" ? "dark" : "light");
 
     const toggle = document.querySelector(".theme-toggle");
     if (!toggle) return;
@@ -66,7 +69,16 @@
     });
   }
 
-  /* ---------- 3. Menu navigasi responsif ---------- */
+  /* ---------- 3. Loader halaman ---------- */
+  function initLoader() {
+    const loader = document.querySelector(".page-loader");
+    if (!loader) return;
+    const hide = () => setTimeout(() => loader.classList.add("done"), 300);
+    if (document.readyState === "complete") hide();
+    else window.addEventListener("load", hide);
+  }
+
+  /* ---------- 4. Menu navigasi responsif ---------- */
   function initMenu() {
     const toggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector(".nav-menu");
@@ -90,15 +102,14 @@
   function markActiveLink() {
     const current = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll(".nav-link").forEach((link) => {
-      const target = link.getAttribute("href");
-      if (target === current) {
+      if (link.getAttribute("href") === current) {
         link.classList.add("active");
         link.setAttribute("aria-current", "page");
       }
     });
   }
 
-  /* ---------- 4. Header, progress bar & tombol kembali ke atas ---------- */
+  /* ---------- 5. Header, progress bar & tombol kembali ke atas ---------- */
   function initScrollEffects() {
     const progress = document.querySelector(".scroll-progress");
     const backTop = document.querySelector(".back-to-top");
@@ -121,75 +132,6 @@
     }
   }
 
-  /* ---------- 5. Validasi formulir kontak ---------- */
-  const validators = {
-    nama: (v) => (v.trim().length >= 3 ? "" : "Nama minimal 3 karakter."),
-    email: (v) => (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Masukkan alamat email yang valid."),
-    telepon: (v) => (/^(\+62|62|0)[0-9]{8,13}$/.test(v.replace(/[\s-]/g, "")) ? "" : "Nomor telepon tidak valid (contoh: 0812xxxxxxx)."),
-    layanan: (v) => (v ? "" : "Pilih jenis layanan."),
-    pesan: (v) => (v.trim().length >= 10 ? "" : "Pesan minimal 10 karakter."),
-  };
-
-  function validateField(field) {
-    const group = field.closest(".form-group");
-    const rule = validators[field.name];
-    if (!rule || !group) return true;
-
-    const message = rule(field.value);
-    const errorEl = group.querySelector(".error-msg");
-    group.classList.toggle("invalid", Boolean(message));
-    field.setAttribute("aria-invalid", String(Boolean(message)));
-    if (errorEl) errorEl.textContent = message;
-    return !message;
-  }
-
-  function initContactForm() {
-    const form = document.getElementById("contact-form");
-    if (!form) return;
-
-    // Isi otomatis jenis layanan jika datang dari tombol "Pesan Layanan" (kontak.html?layanan=id)
-    const presetService = new URLSearchParams(window.location.search).get("layanan");
-    const serviceSelect = form.querySelector("#layanan");
-    if (presetService && serviceSelect && [...serviceSelect.options].some((o) => o.value === presetService)) {
-      serviceSelect.value = presetService;
-      showToast("Layanan dipilih otomatis. Lengkapi data Anda di bawah.", "info", 3000);
-    }
-
-    // Validasi saat pengguna meninggalkan kolom isian
-    form.querySelectorAll("input, select, textarea").forEach((field) => {
-      field.addEventListener("blur", () => validateField(field));
-      field.addEventListener("input", () => {
-        if (field.closest(".form-group").classList.contains("invalid")) validateField(field);
-      });
-    });
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const fields = [...form.querySelectorAll("input, select, textarea")];
-      const results = fields.map(validateField);
-      const firstInvalid = fields.find((f) => f.closest(".form-group").classList.contains("invalid"));
-
-      if (results.every(Boolean)) {
-        const btn = form.querySelector('button[type="submit"]');
-        const label = btn.querySelector(".btn-label");
-        btn.disabled = true;
-        label.textContent = "Mengirim...";
-
-        // Simulasi pengiriman (tanpa backend). Ganti dengan integrasi sesuai kebutuhan.
-        setTimeout(() => {
-          showToast("Pesan Anda berhasil dikirim. Tim NETWARE akan segera menghubungi Anda.", "success", 4500);
-          form.reset();
-          fields.forEach((f) => f.closest(".form-group").classList.remove("invalid"));
-          btn.disabled = false;
-          label.textContent = "Kirim Pesan";
-        }, 1200);
-      } else {
-        showToast("Mohon periksa kembali isian formulir.", "error");
-        if (firstInvalid) firstInvalid.focus();
-      }
-    });
-  }
-
   /* ---------- 6. Tahun otomatis di footer ---------- */
   function setYear() {
     document.querySelectorAll(".current-year").forEach((el) => {
@@ -200,10 +142,10 @@
   /* ---------- Inisialisasi ---------- */
   document.addEventListener("DOMContentLoaded", () => {
     initTheme();
+    initLoader();
     initMenu();
     markActiveLink();
     initScrollEffects();
-    initContactForm();
     setYear();
   });
 })();

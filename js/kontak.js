@@ -54,13 +54,13 @@
   const selectLayanan = document.getElementById('layanan');
 
     // Peta dari id layanan (layanan.js) ke value <option> di kontak.html
-  const PETA_LAYANAN = {
+    const PETA_LAYANAN = {
     'cetak-dokumen': 'Cetak Dokumen Hitam Putih',
     'cetak-warna': 'Cetak Warna',
     'jilid': 'Jilid & Laminating',
     'servis-hp-layar-ip': 'Ganti LCD Iphone',
     'servis-hp-layar-android': 'Ganti LCD Android',
-    'servis-hp-konektor-charger': 'Ganti Konnektor Board Charger Android',
+    'servis-hp-konnektor-charger': 'Ganti Konnektor Board Charger Android',
     'servis-hp-baterai': 'Ganti Baterai HP',
     'servis-hp-flas': 'Jasa Flashing & Unlock HP',
     'servis-laptop-software': 'Install Ulang & Optimasi',
@@ -70,9 +70,12 @@
     'instalasi-hdd-ssd': 'Upgrade HDD/SSD Laptop',
     'instalasi-ram': 'Pemasangan RAM Laptop',
     'instalasi-lcd-laptop': 'Pemasangan LCD Laptop',
-    'konsultasi-it': 'Konsultasi Kebutuhan IT'
+    'konsultasi-it': 'Konsultasi Kebutuhan IT',
+    'topup-dana': 'Top Up E-Wallet',
+    'topup-ovo': 'Top Up E-Wallet',
+    'topup-gopay': 'Top Up E-Wallet',
+    'topup-shopeepay': 'Top Up E-Wallet'
   };
-
   // Isi otomatis jenis layanan dari parameter URL (?layanan=...)
     // Tampilkan notifikasi singkat (toast) di pojok layar
   function tampilkanToast(pesan) {

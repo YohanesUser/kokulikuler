@@ -31,11 +31,12 @@
   };
 
   /* ---------- 2. Kategori ---------- */
-  const CATEGORIES = {
+    const CATEGORIES = {
     semua: { id: "Semua", en: "All" },
     percetakan: { id: "Percetakan", en: "Printing" },
     "servis-hp": { id: "Servis HP", en: "Phone Repair" },
     "servis-laptop": { id: "Servis Laptop", en: "Laptop Repair" },
+    "topup-ewallet": { id: "Top Up E-Wallet", en: "E-Wallet Top Up" },
     teknologi: { id: "Teknologi Lainnya", en: "Other Tech" },
   };
 
@@ -87,6 +88,118 @@
       details: {
         id: ["Jilid spiral, lakban, dan hardcover", "Laminating doff atau glossy", "Pilihan warna sampul"],
         en: ["Spiral, tape, and hardcover binding", "Matte or glossy lamination", "Cover color options"],
+      },
+    },
+        {
+      id: "topup-dana",
+      category: "topup-ewallet",
+      icon: "globe",
+      title: { id: "Top Up DANA", en: "DANA Top Up" },
+      description: {
+        id: "Isi saldo DANA cepat dan aman. Biaya admin mulai Rp 2.000.",
+        en: "Fast and secure DANA balance top up. Admin fee starts at Rp 2,000.",
+      },
+      price: "Sesuai nominal",
+      unit: null,
+      details: {
+        id: [
+          "Nominal sesuai kebutuhan",
+          "Biaya admin: nominal s.d. Rp 50.000 = Rp 2.000",
+          "Biaya admin: Rp 100.000 - Rp 200.000 = Rp 3.000",
+          "Biaya admin: Rp 200.000 - Rp 500.000 = Rp 5.000",
+          "Proses cepat, bukti transaksi disediakan"
+        ],
+        en: [
+          "Amount as needed",
+          "Admin fee: up to Rp 50,000 = Rp 2,000",
+          "Admin fee: Rp 100,000 - Rp 200,000 = Rp 3,000",
+          "Admin fee: Rp 200,000 - Rp 500,000 = Rp 5,000",
+          "Fast process, transaction receipt provided"
+        ],
+      },
+    },
+    {
+      id: "topup-ovo",
+      category: "topup-ewallet",
+      icon: "globe",
+      title: { id: "Top Up OVO", en: "OVO Top Up" },
+      description: {
+        id: "Isi saldo OVO cepat dan aman. Biaya admin mulai Rp 2.000.",
+        en: "Fast and secure OVO balance top up. Admin fee starts at Rp 2,000.",
+      },
+      price: "Sesuai nominal",
+      unit: null,
+      details: {
+        id: [
+          "Nominal sesuai kebutuhan",
+          "Biaya admin: nominal s.d. Rp 50.000 = Rp 2.000",
+          "Biaya admin: Rp 100.000 - Rp 200.000 = Rp 3.000",
+          "Biaya admin: Rp 200.000 - Rp 500.000 = Rp 5.000",
+          "Proses cepat, bukti transaksi disediakan"
+        ],
+        en: [
+          "Amount as needed",
+          "Admin fee: up to Rp 50,000 = Rp 2,000",
+          "Admin fee: Rp 100,000 - Rp 200,000 = Rp 3,000",
+          "Admin fee: Rp 200,000 - Rp 500,000 = Rp 5,000",
+          "Fast process, transaction receipt provided"
+        ],
+      },
+    },
+    {
+      id: "topup-gopay",
+      category: "topup-ewallet",
+      icon: "globe",
+      title: { id: "Top Up GoPay", en: "GoPay Top Up" },
+      description: {
+        id: "Isi saldo GoPay cepat dan aman. Biaya admin mulai Rp 2.000.",
+        en: "Fast and secure GoPay balance top up. Admin fee starts at Rp 2,000.",
+      },
+      price: "Sesuai nominal",
+      unit: null,
+      details: {
+        id: [
+          "Nominal sesuai kebutuhan",
+          "Biaya admin: nominal s.d. Rp 50.000 = Rp 2.000",
+          "Biaya admin: Rp 100.000 - Rp 200.000 = Rp 3.000",
+          "Biaya admin: Rp 200.000 - Rp 500.000 = Rp 5.000",
+          "Proses cepat, bukti transaksi disediakan"
+        ],
+        en: [
+          "Amount as needed",
+          "Admin fee: up to Rp 50,000 = Rp 2,000",
+          "Admin fee: Rp 100,000 - Rp 200,000 = Rp 3,000",
+          "Admin fee: Rp 200,000 - Rp 500,000 = Rp 5,000",
+          "Fast process, transaction receipt provided"
+        ],
+      },
+    },
+    {
+      id: "topup-shopeepay",
+      category: "topup-ewallet",
+      icon: "globe",
+      title: { id: "Top Up ShopeePay", en: "ShopeePay Top Up" },
+      description: {
+        id: "Isi saldo ShopeePay cepat dan aman. Biaya admin mulai Rp 2.000.",
+        en: "Fast and secure ShopeePay balance top up. Admin fee starts at Rp 2,000.",
+      },
+      price: "Sesuai nominal",
+      unit: null,
+      details: {
+        id: [
+          "Nominal sesuai kebutuhan",
+          "Biaya admin: nominal s.d. Rp 50.000 = Rp 2.000",
+          "Biaya admin: Rp 100.000 - Rp 200.000 = Rp 3.000",
+          "Biaya admin: Rp 200.000 - Rp 500.000 = Rp 5.000",
+          "Proses cepat, bukti transaksi disediakan"
+        ],
+        en: [
+          "Amount as needed",
+          "Admin fee: up to Rp 50,000 = Rp 2,000",
+          "Admin fee: Rp 100,000 - Rp 200,000 = Rp 3,000",
+          "Admin fee: Rp 200,000 - Rp 500,000 = Rp 5,000",
+          "Fast process, transaction receipt provided"
+        ],
       },
     },
     {
